@@ -1,13 +1,17 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import ui.UIMenu;
+
+import java.security.spec.RSAOtherPrimeInfo;
+
+import static ui.UIMenu.showMenu;
+
 public class Main {
     public static void main(String[] args) {
 
-        Doctor myDoctor = new Doctor("Anahi Salgado");
-        myDoctor.id = 1;
-        myDoctor.name = "Alejandro Rodriguez";
-        myDoctor.speciality = "cirugia";
-        myDoctor.showName();
+        //showMenu();
 
+        Doctor myDoctor = new Doctor("Anahi Salgado", "pediatria");
+        myDoctor.showDoctor();
+
+        Patient patient = new Patient("Alejandra", "alejandra@mail.com");
     }
 }
