@@ -1,28 +1,19 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
-    static int id; //Autoincrement
-    String name;
-    String email;
+public class Doctor extends User{
+
     String speciality;
-
-    public Doctor(String name, String speciality){
-        System.out.println("El nombre del doctor es: " + name);
-        id++;
-        this.name = name;
+    public Doctor(String name, String email,String speciality){
+        super(name,email);
         this.speciality = speciality;
-    }
 
-    //Comportamientos
-    public void showDoctor(){
         System.out.println("Nombre del doctor: " + name + ". Especialidad: " + speciality);
     }
 
-    public void showId(){
-        System.out.println("ID Doctor: " + id);
-    }
-
+    //Comportamientos
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public void addAvailableAppointment(Date date, String time){
         availableAppointments.add(new Doctor.AvailableAppointment(date,time));
@@ -30,6 +21,11 @@ public class Doctor {
 
     public ArrayList<AvailableAppointment> getAvailableAppointments(){
         return availableAppointments;
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + "\nSpeciality: " + speciality + "\nAvailable: " + availableAppointments.toString();
     }
 
     public static class AvailableAppointment{
@@ -65,8 +61,13 @@ public class Doctor {
         public void setTime(String time) {
             this.time = time;
         }
+
+        @Override
+        public String toString() {
+            return "Available Appointments \nDate: " +date+ "\nTime: " + time;
+        }
+
+
     }
-
-
 }
 
