@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class UIMenu {
 
-    final static String[] MONTHS = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
+    public static final String[] MONTHS = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
     public static Doctor doctorLogged;
     public static Patient patientLogged;
 
@@ -17,7 +17,7 @@ public class UIMenu {
         System.out.println("Welcome to My Appointments");
         System.out.println("Selecciona la opción deseada");
 
-        int response = 0;
+        int response;
         do {
             System.out.println("1. Doctor");
             System.out.println("2. Patient");
@@ -35,10 +35,11 @@ public class UIMenu {
                 case 2:
                     response = 0;
                     authUser(2);
-
                     break;
                 case 0:
                     System.out.println("Thank you for you visit");
+                    int ex = 0;
+                    System.exit(ex);
                     break;
                 default:
                     System.out.println("Please select a correct answer");
@@ -71,7 +72,7 @@ public class UIMenu {
                         emailCorrect = true;
                         //Obtener el usuario logeado
                         doctorLogged = d;
-                        //showDoctorMenu
+                        UIDoctorMenu.showDoctorMenu();
                     }
                 }
             }
@@ -82,7 +83,7 @@ public class UIMenu {
                         emailCorrect = true;
                         //Obtener el usuario logeado
                         patientLogged = p;
-                        //showDoctorMenu
+                        UIPatientMenu.showPatientMenu();
                     }
                 }
         }while (!emailCorrect);
